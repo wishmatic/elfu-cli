@@ -1,10 +1,12 @@
-# LFU MCP
+# Elfu CLI and MCP
+
+> I no longer use Librechat, and my new agent of choice can do these things without help, so this
+> repository has been archived.
 
 <img src="docs/images/logo.webp" alt="Elfu MCP Logo" width="128">
 
-> Librechat Functional Utilities, LFU, or Elfu.
-
-An MCP server of small utilities for Librechat.
+Formerly "Librechat Functional Utilities," LFU, or Elfu. Now, it's general utilities that can help
+coding and general assistant AI agents.
 
 ## Tools
 
