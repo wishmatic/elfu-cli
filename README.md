@@ -43,7 +43,30 @@ human-readable form. `sleep` waits up to 30 seconds and returns the time it woke
 
 ## Usage
 
-Deploy as a Docker image:
+### CLI
+
+```sh
+go install github.com/wishmatic/elfu-mcp/cmd/elfu-cli@latest
+```
+
+Examples:
+
+```sh
+elfu-cli help
+elfu-cli time
+elfu-cli since 2026-01-01
+elfu-cli sleep 2
+elfu-cli embed https://example.com/video.mp4
+elfu-cli inline https://example.com/logo.webp --out ./images
+```
+
+`embed` prints the same HTML player the tool returns. `inline` writes the prepared WebP to a local
+file rather than returning an image block, since a CLI has no content blocks; `--out` picks the
+directory.
+
+### MCP server
+
+The Docker image's entry point is `elfu-cli serve`, which needs `API_KEY` and `PUBLIC_HOST`:
 
 ```sh
 docker run -d \
@@ -65,6 +88,14 @@ See [.env.example](.env.example) for all configuration.
 
 `API_KEY` is required on every `/mcp` request, sent as `Authorization: Bearer <API_KEY>`. Stored
 images are served without authentication.
+
+## Local Development
+
+Copy `.env.example` to `.env` and fill it in, then:
+
+```sh
+go run ./cmd/elfu-cli serve
+```
 
 ## License
 

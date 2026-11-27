@@ -64,7 +64,8 @@ If you make changes to the architecture, update this diagram.
 
 ```mermaid
 flowchart TD
-    cmd["cmd/server"]
+    cmd["cmd/elfu-cli"]
+    cli["internal/cli"]
     server["internal/server"]
     mcp["internal/mcp"]
     present["internal/present"]
@@ -77,8 +78,16 @@ flowchart TD
     timing["internal/timing"]
     utils["internal/utils"]
 
-    cmd --> server
+    cmd --> cli
     cmd --> config
+    cmd --> imgfmt
+    cmd --> present
+    cmd --> server
+    cmd --> timing
+
+    cli --> config
+    cli --> resolve
+    cli --> sourcemap
 
     server --> mcp
     server --> auth
